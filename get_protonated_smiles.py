@@ -7,6 +7,7 @@ from rdkit.Chem import AllChem
 from rdkit.Chem.MolStandardize import rdMolStandardize
 import pandas as pd
 import os, sys
+# from https://github.com/wujialu/MF-SuP-pKa
 smarts_file = "./data/smarts_pattern_ionized.txt"
 
 def split_acid_base_pattern(smarts_file):
@@ -30,20 +31,16 @@ def match_acid(df_smarts_acid, mol, get_substructure_type=False):
         match = mol.GetSubstructMatches(pattern)
         if len(match) == 0:
             continue
-        # else:
-        #     print(idx)
         if len(index) > 2:
             index = index.split(",")
             index = [int(i) for i in index]
             for m in match:
                 matches.append([m[index[0]], m[index[1]]])
-            # print(smarts)
             substructure_types.append(name)
         else:
             index = int(index)
             for m in match:
                 matches.append([m[index]])
-            # print(smarts)
             substructure_types.append(name)
     matches = unique_acid_match(matches)
     matches_modify = []
@@ -63,20 +60,16 @@ def match_base(df_smarts_base, mol, get_substructure_type=False):
         match = mol.GetSubstructMatches(pattern)
         if len(match) == 0:
             continue
-        # else:
-        #     print(idx)
         if len(index) > 2:
             index = index.split(",")
             index = [int(i) for i in index]
             for m in match:
                 matches.append([m[index[0]], m[index[1]]])
-            # print(smarts)
             substructure_types.append(name)
         else:
             index = int(index)
             for m in match:
                 matches.append([m[index]])
-            # print(smarts)
             substructure_types.append(name)
     matches = unique_acid_match(matches)
     matches_modify = []
@@ -132,8 +125,8 @@ def get_acid(smiles):
         atom = mol.GetAtomWithIdx(base_idx[0])
         atom.SetFormalCharge(atom.GetFormalCharge() + 1)
         atom.SetNumExplicitHs(atom.GetTotalNumHs() + 1)
-        acid=Chem.MolToSmiles(mol)
-    else: acid=None
+        acid = Chem.MolToSmiles(mol)
+    else: acid = None
     return acid
 
 def get_base(smiles):
@@ -144,8 +137,8 @@ def get_base(smiles):
         atom = mol.GetAtomWithIdx(acid_idx[0])
         atom.SetFormalCharge(atom.GetFormalCharge() - 1)
         atom.SetNumExplicitHs(atom.GetTotalNumHs() - 1)
-        base=Chem.MolToSmiles(mol)
-    else: base=None
+        base = Chem.MolToSmiles(mol)
+    else: base = None
     return base
 
 
@@ -160,14 +153,14 @@ def get_acid_base(smiles):
         atom = mol.GetAtomWithIdx(ib)
         atom.SetFormalCharge(atom.GetFormalCharge() + 1)
         atom.SetNumExplicitHs(atom.GetTotalNumHs() + 1)
-        acid=Chem.MolToSmiles(mol)
+        acid = Chem.MolToSmiles(mol)
         l_acid.append(acid)
     for ia in acid_idx:
         mol = Chem.MolFromSmiles(smiles)
         atom = mol.GetAtomWithIdx(ia)
         atom.SetFormalCharge(atom.GetFormalCharge() - 1)
         atom.SetNumExplicitHs(atom.GetTotalNumHs() - 1)
-        base=Chem.MolToSmiles(mol)
+        base = Chem.MolToSmiles(mol)
         l_base.append(base)
     return list(set(l_acid)), list(set(l_base))
 
@@ -183,12 +176,12 @@ def categorize_acid_base(smiles):
 
 
 def get_acid_base_list(l_smiles):
-    l_acid=[]
-    l_base=[]
-    l_num_a=[]
-    l_num_b=[]
+    l_acid = []
+    l_base = []
+    l_num_a = []
+    l_num_b = []
     for s in l_smiles:
-        l_a,l_b=get_acid_base(s)
+        l_a,l_b = get_acid_base(s)
         l_acid.append(l_a)
         l_base.append(l_b)
         l_num_a.append(len(l_a))
