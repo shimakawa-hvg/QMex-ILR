@@ -1,8 +1,11 @@
 # QMex-ILMM
 "Extrapolative prediction of small-data molecular property using quantum mechanics-assisted machine learning" (to be submitted)
+
 Hajime Shimakawa, Akiko Kumada, and Masahiro Sato
+
 Department of Electrical Engineering & Information Systems, School of Engineering, 
 The University of Tokyo, 7-3-1 Hongo, Bunkyo-ku, 113-8656, Tokyo, Japan
+
 ## Requirements
 - python 3.7
 - rdkit 2020.09.1.0
@@ -16,4 +19,5 @@ The University of Tokyo, 7-3-1 Hongo, Bunkyo-ku, 113-8656, Tokyo, Japan
 - ```ILR_test.py```: code to test making interaction terms and prediction with QMex-ILR.
 ## Reference
 We use the public code by J. Wu et al.
+
 [1] Wu, J., Wan, Y., Wu, Z., Zhang, S., Cao, D., Hsieh, C. Y., & Hou, T. (2022). MF-SuP-pKa: multi-fidelity modeling with subgraph pooling mechanism for pKa prediction. Acta Pharmaceutica Sinica B.
