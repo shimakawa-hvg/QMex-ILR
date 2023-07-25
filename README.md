@@ -16,7 +16,7 @@ The University of Tokyo, 7-3-1 Hongo, Bunkyo-ku, 113-8656, Tokyo, Japan
 - ```data_test/```: data for QMex-ILR test (whole data are available in Zenodo https://doi.org/10.5281/zenodo.8177233)
 - ```chemical_category.py```: implementation of chemical category from SMILES.
 - ```get_protonated_smiles.py```: code to determine SMILES that can be protonated or de-protonated for chemical category [1].
-- ```ILR_test.py```: code to test making interaction terms and prediction with QMex-ILR.
+- ```ILR_test.ipynb```: jupyternotebook for test of prediction with QMex-ILR.
 ## Reference
 We use the public code by J. Wu et al.
 
