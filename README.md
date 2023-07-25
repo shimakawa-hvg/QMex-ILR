@@ -13,7 +13,7 @@ The University of Tokyo, 7-3-1 Hongo, Bunkyo-ku, 113-8656, Tokyo, Japan
 - openbabel 2.4.1
 - pymatgen 2022.0.14
 ## Content
-- ```data_test/```: data for QMex-ILR test (whole data are available in Zenodo https://doi.org/10.5281/zenodo.8177233)
+- ```data_test/```: data for QMex-ILR test (whole data are available in Zenodo https://doi.org/10.5281/zenodo.8180702)
 - ```chemical_category.py```: implementation of chemical category from SMILES.
 - ```get_protonated_smiles.py```: code to determine SMILES that can be protonated or de-protonated for chemical category [1].
 - ```ILR_test.ipynb```: jupyternotebook for test of prediction with QMex-ILR.
