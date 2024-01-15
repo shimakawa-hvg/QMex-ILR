@@ -1,5 +1,7 @@
-# QMex-ILMM
-"Extrapolative prediction of small-data molecular property using quantum mechanics-assisted machine learning" (to be submitted)
+# QMex-ILR
+"Extrapolative prediction of small-data molecular property using quantum mechanics-assisted machine learning" 
+
+npj Comput Mater 10, 11 (2024). https://doi.org/10.1038/s41524-023-01194-2
 
 Hajime Shimakawa, Akiko Kumada, and Masahiro Sato
 
